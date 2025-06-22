@@ -309,6 +309,7 @@
       padding: 20px;
       transition: all 0.3s ease;
       border-bottom: 3px solid var(--primary);
+      position: relative;
     }
 
     .menu-item:hover {
@@ -493,6 +494,208 @@
       }
     }
 
+    /* Selector de cantidad */
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 15px;
+      gap: 5px;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .quantity-btn:hover {
+      background-color: #e05e00;
+    }
+
+    .quantity-input {
+      width: 40px;
+      height: 30px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.05);
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Botón de completar orden */
+    .complete-order-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+      padding: 15px 30px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      display: none;
+    }
+
+    .complete-order-btn:hover {
+      background-color: #e05e00;
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+    }
+
+    .complete-order-btn.show {
+      display: block;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    /* Modal de confirmación */
+    .order-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .order-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: var(--dark);
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      border: 2px solid var(--primary);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .modal-title {
+      font-family: 'Amatic SC', cursive;
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .order-summary {
+      margin-bottom: 30px;
+    }
+
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .order-item-name {
+      font-weight: 600;
+    }
+
+    .order-item-price {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 2px solid var(--primary);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .modal-whatsapp-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background-color: #25D366;
+      color: white;
+      text-align: center;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .modal-whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: translateY(-3px);
+    }
+
+    /* Submenú de categorías */
+    .category-nav {
+      position: sticky;
+      top: 80px;
+      background-color: rgba(26, 26, 26, 0.95);
+      z-index: 999;
+      padding: 15px 0;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .category-link {
+      padding: 8px 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      color: var(--light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .category-link:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
     /* Responsive */
     @media (max-width: 992px) {
       .location-info {
@@ -546,6 +749,25 @@
       
       .menu-grid {
         grid-template-columns: 1fr;
+      }
+
+      .category-nav {
+        top: 70px;
+        padding: 10px 5%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .category-link {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+
+      .complete-order-btn {
+        width: 90%;
+        text-align: center;
       }
     }
 
@@ -615,9 +837,21 @@
     <div class="section-bg" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1098&q=80');"></div>
     <h2 class="section-title">Nuestro Menú</h2>
     
+    <!-- Submenú de categorías -->
+    <div class="category-nav" id="categoryNav">
+      <a href="#paquetes" class="category-link">Paquetes</a>
+      <a href="#hamburguesas" class="category-link">Hamburguesas</a>
+      <a href="#premium" class="category-link">Premium</a>
+      <a href="#hotdogs" class="category-link">Hot Dogs</a>
+      <a href="#alitas" class="category-link">Alitas</a>
+      <a href="#malteadas" class="category-link">Malteadas</a>
+      <a href="#snacks" class="category-link">Snacks</a>
+      <a href="#bebidas" class="category-link">Bebidas</a>
+    </div>
+    
     <div class="menu-container">
       <!-- Sección Paquetes -->
-      <div class="menu-section">
+      <div class="menu-section" id="paquetes">
         <div class="section-header">
           <h3 class="section-name">Paquetes Especiales</h3>
         </div>
@@ -630,9 +864,11 @@
             </div>
             <p class="item-description">Hamburguesa a elegir + Papas Francesa + Bebida</p>
             <p class="item-options">Opciones de hamburguesa: C/Queso, Pollo, Especial, Hawaiana, Choriqueso, Onion King, Blue Cheese, BBQ, Hot</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir el PAQUETE BURGER de $99" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAQUETE BURGER" data-price="99">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE BURGER" data-price="99">
+              <button class="quantity-btn plus" data-item="PAQUETE BURGER" data-price="99">+</button>
+            </div>
           </div>
           
           <!-- Opciones Premium -->
@@ -643,9 +879,11 @@
             </div>
             <p class="item-description">Hamburguesa premium + Papas Francesa + Bebida</p>
             <p class="item-options">Opciones: 3 Quesos, Champion con Queso y Champiñones, Mostachona (queso, salchicha, jamón, tocino), Bigotona (doble carne y doble queso)</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una OPCIÓN PREMIUM de hamburguesa de $119" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="OPCIONES PREMIUM" data-price="119">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="OPCIONES PREMIUM" data-price="119">
+              <button class="quantity-btn plus" data-item="OPCIONES PREMIUM" data-price="119">+</button>
+            </div>
           </div>
           
           <!-- Paquete Hunger -->
@@ -655,9 +893,11 @@
               <span class="item-price">$125</span>
             </div>
             <p class="item-description">Hamburguesa con queso + Hot dog con queso + Papas Francesas + 1 Bebida</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir el PAQUETE HUNGER de $125" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAQUETE HUNGER" data-price="125">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE HUNGER" data-price="125">
+              <button class="quantity-btn plus" data-item="PAQUETE HUNGER" data-price="125">+</button>
+            </div>
           </div>
           
           <!-- Paquete Par -->
@@ -667,9 +907,11 @@
               <span class="item-price">$185</span>
             </div>
             <p class="item-description">2 Hamburguesas con queso + 2 Papas Francesa + 2 Bebidas</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir el PAQUETE PAR de $185" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAQUETE PAR" data-price="185">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE PAR" data-price="185">
+              <button class="quantity-btn plus" data-item="PAQUETE PAR" data-price="185">+</button>
+            </div>
           </div>
           
           <!-- Paquete Alitas -->
@@ -680,9 +922,11 @@
             </div>
             <p class="item-description">Orden de Alitas + Papas Francesas + Bebida</p>
             <p class="item-options">Sabores: BBQ, Hot, Blue Cheese, Parmesano</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir el PAQUETE ALITAS de $99" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAQUETE ALITAS" data-price="99">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE ALITAS" data-price="99">
+              <button class="quantity-btn plus" data-item="PAQUETE ALITAS" data-price="99">+</button>
+            </div>
           </div>
           
           <!-- Paquete Jocho -->
@@ -693,15 +937,17 @@
             </div>
             <p class="item-description">Hot dog a elegir + Papas Francesa + Bebida</p>
             <p class="item-options">Opciones: Con Queso, Especial (tocino y queso), Blue Cheese, BBQ, Hot, Hawaiano, Champion (queso y champiñones)</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir el PAQUETE JOCHO de $78" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAQUETE JOCHO" data-price="78">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE JOCHO" data-price="78">
+              <button class="quantity-btn plus" data-item="PAQUETE JOCHO" data-price="78">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Hamburguesas Clásicas -->
-      <div class="menu-section">
+      <div class="menu-section" id="hamburguesas">
         <div class="section-header">
           <h3 class="section-name">Bigoburguesas</h3>
         </div>
@@ -711,9 +957,11 @@
               <span class="item-name">CHEESEBURGER</span>
               <span class="item-price">$35</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una CHEESEBURGER ($35)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="CHEESEBURGER" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="CHEESEBURGER" data-price="35">
+              <button class="quantity-btn plus" data-item="CHEESEBURGER" data-price="35">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -721,9 +969,11 @@
               <span class="item-name">SENCILLA</span>
               <span class="item-price">$55</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA SENCILLA ($55)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="SENCILLA" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="SENCILLA" data-price="55">
+              <button class="quantity-btn plus" data-item="SENCILLA" data-price="55">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -731,9 +981,11 @@
               <span class="item-name">C/QUESO</span>
               <span class="item-price">$59</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA C/QUESO ($59)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="C/QUESO" data-price="59">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="C/QUESO" data-price="59">
+              <button class="quantity-btn plus" data-item="C/QUESO" data-price="59">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -741,9 +993,11 @@
               <span class="item-name">POLLO</span>
               <span class="item-price">$59</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA DE POLLO ($59)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="POLLO" data-price="59">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="POLLO" data-price="59">
+              <button class="quantity-btn plus" data-item="POLLO" data-price="59">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -752,9 +1006,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con tocino y queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA ESPECIAL ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="ESPECIAL" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="ESPECIAL" data-price="65">
+              <button class="quantity-btn plus" data-item="ESPECIAL" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -763,9 +1019,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con piña, jamón y queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA HAWAIANA ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HAWAIANA" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HAWAIANA" data-price="65">
+              <button class="quantity-btn plus" data-item="HAWAIANA" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -774,9 +1032,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con chorizo y queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA CHORIQUESO ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="CHORIQUESO" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="CHORIQUESO" data-price="65">
+              <button class="quantity-btn plus" data-item="CHORIQUESO" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -785,9 +1045,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con queso y aros de cebolla</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA ONION KING ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="ONION KING" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="ONION KING" data-price="65">
+              <button class="quantity-btn plus" data-item="ONION KING" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -796,9 +1058,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con queso y aderezo</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA BLUE CHEESE ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="BLUE CHEESE" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="BLUE CHEESE" data-price="65">
+              <button class="quantity-btn plus" data-item="BLUE CHEESE" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -807,9 +1071,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con queso y aderezo</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA BBQ ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="BBQ" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="BBQ" data-price="65">
+              <button class="quantity-btn plus" data-item="BBQ" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -818,9 +1084,11 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con queso y aderezo</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA HOT ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT" data-price="65">
+              <button class="quantity-btn plus" data-item="HOT" data-price="65">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -829,15 +1097,17 @@
               <span class="item-price">$65</span>
             </div>
             <p class="item-description">Con mix de champiñones y queso (sin carne)</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA VEGGIE ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="VEGGIE" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="VEGGIE" data-price="65">
+              <button class="quantity-btn plus" data-item="VEGGIE" data-price="65">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Hamburguesas Premium -->
-      <div class="menu-section">
+      <div class="menu-section" id="premium">
         <div class="section-header">
           <h3 class="section-name">Hamburguesas Premium</h3>
         </div>
@@ -848,9 +1118,11 @@
               <span class="item-price">$75</span>
             </div>
             <p class="item-description">Manchego, Amarillo, Quesillo</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA 3 QUESOS ($75)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="3 QUESOS" data-price="75">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="3 QUESOS" data-price="75">
+              <button class="quantity-btn plus" data-item="3 QUESOS" data-price="75">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -859,9 +1131,11 @@
               <span class="item-price">$75</span>
             </div>
             <p class="item-description">Con queso y champiñones</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA CHAMPION ($75)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="CHAMPION" data-price="75">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="CHAMPION" data-price="75">
+              <button class="quantity-btn plus" data-item="CHAMPION" data-price="75">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -870,9 +1144,11 @@
               <span class="item-price">$79</span>
             </div>
             <p class="item-description">Con queso, tocino, jamón y salchicha</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA MOSTACHONA ($79)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="MOSTACHONA" data-price="79">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="MOSTACHONA" data-price="79">
+              <button class="quantity-btn plus" data-item="MOSTACHONA" data-price="79">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -881,15 +1157,17 @@
               <span class="item-price">$89</span>
             </div>
             <p class="item-description">Con doble carne y doble queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una HAMBURGUESA BIGOTONA ($89)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="BIGOTONA" data-price="89">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="BIGOTONA" data-price="89">
+              <button class="quantity-btn plus" data-item="BIGOTONA" data-price="89">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Hot Dogs -->
-      <div class="menu-section">
+      <div class="menu-section" id="hotdogs">
         <div class="section-header">
           <h3 class="section-name">Jochos</h3>
         </div>
@@ -899,9 +1177,11 @@
               <span class="item-name">C/QUESO</span>
               <span class="item-price">$30</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG C/QUESO ($30)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG C/QUESO" data-price="30">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG C/QUESO" data-price="30">
+              <button class="quantity-btn plus" data-item="HOT DOG C/QUESO" data-price="30">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -910,9 +1190,11 @@
               <span class="item-price">$35</span>
             </div>
             <p class="item-description">Con tocino y queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG ESPECIAL ($35)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG ESPECIAL" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG ESPECIAL" data-price="35">
+              <button class="quantity-btn plus" data-item="HOT DOG ESPECIAL" data-price="35">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -921,9 +1203,11 @@
               <span class="item-price">$35</span>
             </div>
             <p class="item-description">Con queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG BBQ ($35)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG BBQ" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG BBQ" data-price="35">
+              <button class="quantity-btn plus" data-item="HOT DOG BBQ" data-price="35">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -932,9 +1216,11 @@
               <span class="item-price">$35</span>
             </div>
             <p class="item-description">Con queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG HOT ($35)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG HOT" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG HOT" data-price="35">
+              <button class="quantity-btn plus" data-item="HOT DOG HOT" data-price="35">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -943,9 +1229,11 @@
               <span class="item-price">$35</span>
             </div>
             <p class="item-description">Con queso</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG BLUE CHEESE ($35)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG BLUE CHEESE" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG BLUE CHEESE" data-price="35">
+              <button class="quantity-btn plus" data-item="HOT DOG BLUE CHEESE" data-price="35">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -954,9 +1242,11 @@
               <span class="item-price">$40</span>
             </div>
             <p class="item-description">Con queso, piña y jamón</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG HAWAIANO ($40)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG HAWAIANO" data-price="40">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG HAWAIANO" data-price="40">
+              <button class="quantity-btn plus" data-item="HOT DOG HAWAIANO" data-price="40">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -965,15 +1255,17 @@
               <span class="item-price">$45</span>
             </div>
             <p class="item-description">Con queso y champiñones</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un HOT DOG CHAMPION ($45)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="HOT DOG CHAMPION" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG CHAMPION" data-price="45">
+              <button class="quantity-btn plus" data-item="HOT DOG CHAMPION" data-price="45">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Alitas -->
-      <div class="menu-section">
+      <div class="menu-section" id="alitas">
         <div class="section-header">
           <h3 class="section-name">Alitas Adobadas</h3>
         </div>
@@ -986,15 +1278,17 @@
             <p class="item-description">350 grs (8 piezas aprox.) con 1 aderezo</p>
             <p class="item-options">Sabores: Parmesano, Blue Cheese, BBQ, Hot</p>
             <p class="item-options">Aderezo extra: +$5</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir ALITAS ADOBADAS ($65)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="ORDEN DE ALITAS" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="ORDEN DE ALITAS" data-price="65">
+              <button class="quantity-btn plus" data-item="ORDEN DE ALITAS" data-price="65">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Malteadas -->
-      <div class="menu-section">
+      <div class="menu-section" id="malteadas">
         <div class="section-header">
           <h3 class="section-name">Malteadas</h3>
         </div>
@@ -1004,9 +1298,11 @@
               <span class="item-name">VAINILLA</span>
               <span class="item-price">$45</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una MALTEADA DE VAINILLA ($45)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="MALTEADA DE VAINILLA" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE VAINILLA" data-price="45">
+              <button class="quantity-btn plus" data-item="MALTEADA DE VAINILLA" data-price="45">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1014,9 +1310,11 @@
               <span class="item-name">FRESA</span>
               <span class="item-price">$45</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una MALTEADA DE FRESA ($45)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="MALTEADA DE FRESA" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE FRESA" data-price="45">
+              <button class="quantity-btn plus" data-item="MALTEADA DE FRESA" data-price="45">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1024,9 +1322,11 @@
               <span class="item-name">NUTELLA</span>
               <span class="item-price">$55</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una MALTEADA DE NUTELLA ($55)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="MALTEADA DE NUTELLA" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE NUTELLA" data-price="55">
+              <button class="quantity-btn plus" data-item="MALTEADA DE NUTELLA" data-price="55">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1034,9 +1334,11 @@
               <span class="item-name">MAZAPAN</span>
               <span class="item-price">$55</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una MALTEADA DE MAZAPAN ($55)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="MALTEADA DE MAZAPAN" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE MAZAPAN" data-price="55">
+              <button class="quantity-btn plus" data-item="MALTEADA DE MAZAPAN" data-price="55">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1044,15 +1346,17 @@
               <span class="item-name">CHOCOFRESA</span>
               <span class="item-price">$55</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una MALTEADA CHOCOFRESA ($55)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="MALTEADA CHOCOFRESA" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA CHOCOFRESA" data-price="55">
+              <button class="quantity-btn plus" data-item="MALTEADA CHOCOFRESA" data-price="55">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Snacks -->
-      <div class="menu-section">
+      <div class="menu-section" id="snacks">
         <div class="section-header">
           <h3 class="section-name">Snacks</h3>
         </div>
@@ -1062,9 +1366,11 @@
               <span class="item-name">PAPAS A LA FRANCESA</span>
               <span class="item-price">$25</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir PAPAS A LA FRANCESA ($25)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAPAS A LA FRANCESA" data-price="25">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAPAS A LA FRANCESA" data-price="25">
+              <button class="quantity-btn plus" data-item="PAPAS A LA FRANCESA" data-price="25">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1072,9 +1378,11 @@
               <span class="item-name">PAPAS GAJO</span>
               <span class="item-price">$30</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir PAPAS GAJO ($30)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="PAPAS GAJO" data-price="30">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="PAPAS GAJO" data-price="30">
+              <button class="quantity-btn plus" data-item="PAPAS GAJO" data-price="30">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1083,15 +1391,17 @@
               <span class="item-price">$35</span>
             </div>
             <p class="item-description">8 piezas</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir AROS DE CEBOLLA ($35)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="AROS DE CEBOLLA" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="AROS DE CEBOLLA" data-price="35">
+              <button class="quantity-btn plus" data-item="AROS DE CEBOLLA" data-price="35">+</button>
+            </div>
           </div>
         </div>
       </div>
       
       <!-- Sección Bebidas -->
-      <div class="menu-section">
+      <div class="menu-section" id="bebidas">
         <div class="section-header">
           <h3 class="section-name">Bebidas</h3>
         </div>
@@ -1101,9 +1411,11 @@
               <span class="item-name">AGUA NATURAL</span>
               <span class="item-price">$15</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir AGUA NATURAL ($15)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="AGUA NATURAL" data-price="15">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="AGUA NATURAL" data-price="15">
+              <button class="quantity-btn plus" data-item="AGUA NATURAL" data-price="15">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1111,9 +1423,11 @@
               <span class="item-name">AGUA DE SABOR</span>
               <span class="item-price">$20</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir AGUA DE SABOR ($20)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="AGUA DE SABOR" data-price="20">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="AGUA DE SABOR" data-price="20">
+              <button class="quantity-btn plus" data-item="AGUA DE SABOR" data-price="20">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1122,9 +1436,11 @@
               <span class="item-price">$20</span>
             </div>
             <p class="item-description">Sabores: Mango, Guayaba, Fresa, Manzana</p>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un BOING ($20)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="BOING" data-price="20">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="BOING" data-price="20">
+              <button class="quantity-btn plus" data-item="BOING" data-price="20">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1132,9 +1448,11 @@
               <span class="item-name">GATORADE</span>
               <span class="item-price">$20</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un GATORADE ($20)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="GATORADE" data-price="20">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="GATORADE" data-price="20">
+              <button class="quantity-btn plus" data-item="GATORADE" data-price="20">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1142,9 +1460,11 @@
               <span class="item-name">COCA CLÁSICA</span>
               <span class="item-price">$25</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una COCA CLÁSICA ($25)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="COCA CLÁSICA" data-price="25">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="COCA CLÁSICA" data-price="25">
+              <button class="quantity-btn plus" data-item="COCA CLÁSICA" data-price="25">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1152,9 +1472,11 @@
               <span class="item-name">COCA SIN AZÚCAR</span>
               <span class="item-price">$25</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir una COCA SIN AZÚCAR ($25)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="COCA SIN AZÚCAR" data-price="25">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="COCA SIN AZÚCAR" data-price="25">
+              <button class="quantity-btn plus" data-item="COCA SIN AZÚCAR" data-price="25">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1162,9 +1484,11 @@
               <span class="item-name">CAFÉ AMERICANO</span>
               <span class="item-price">$20</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un CAFÉ AMERICANO ($20)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="CAFÉ AMERICANO" data-price="20">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="CAFÉ AMERICANO" data-price="20">
+              <button class="quantity-btn plus" data-item="CAFÉ AMERICANO" data-price="20">+</button>
+            </div>
           </div>
           
           <div class="menu-item">
@@ -1172,15 +1496,13 @@
               <span class="item-name">CAFÉ CON LECHE</span>
               <span class="item-price">$25</span>
             </div>
-            <a href="https://wa.me/5215554029560?text=¡Hola! Quiero pedir un CAFÉ CON LECHE ($25)" class="btn btn-whatsapp" target="_blank">
-              <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
-            </a>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="CAFÉ CON LECHE" data-price="25">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="CAFÉ CON LECHE" data-price="25">
+              <button class="quantity-btn plus" data-item="CAFÉ CON LECHE" data-price="25">+</button>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="menu-highlight">
-        <a href="https://wa.me/5215554029560?text=¡Hola! Quiero hacer un pedido en Bigotes Burger House" class="btn btn-primary" target="_blank">Ordenar por WhatsApp</a>
       </div>
     </div>
   </section>
@@ -1239,6 +1561,27 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <!-- Botón de completar orden -->
+  <button class="complete-order-btn" id="completeOrderBtn">Completar Orden</button>
+
+  <!-- Modal de confirmación de orden -->
+  <div class="order-modal" id="orderModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h3 class="modal-title">Tu Orden</h3>
+      <div class="order-summary" id="orderSummary">
+        <!-- Los elementos de la orden se agregarán aquí dinámicamente -->
+      </div>
+      <div class="order-total">
+        <span>Total:</span>
+        <span id="orderTotal">$0</span>
+      </div>
+      <a href="#" class="modal-whatsapp-btn" id="modalWhatsappBtn" target="_blank">
+        <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+      </a>
+    </div>
+  </div>
+
   <!-- Script -->
   <script>
     // Menú móvil
@@ -1266,6 +1609,146 @@
       } else {
         header.classList.remove('header-scrolled');
       }
+    });
+
+    // Sistema de pedidos
+    const completeOrderBtn = document.getElementById('completeOrderBtn');
+    const orderModal = document.getElementById('orderModal');
+    const modalClose = document.getElementById('modalClose');
+    const orderSummary = document.getElementById('orderSummary');
+    const orderTotal = document.getElementById('orderTotal');
+    const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+    const whatsappNumber = '5215554029560';
+
+    // Array para almacenar los items seleccionados
+    let selectedItems = [];
+
+    // Manejar los botones de cantidad
+    document.querySelectorAll('.quantity-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const input = this.parentElement.querySelector('.quantity-input');
+        let value = parseInt(input.value);
+        
+        if (this.classList.contains('plus')) {
+          value++;
+        } else if (this.classList.contains('minus') && value > 0) {
+          value--;
+        }
+        
+        input.value = value;
+        updateOrder();
+      });
+    });
+
+    // Manejar cambios directos en el input
+    document.querySelectorAll('.quantity-input').forEach(input => {
+      input.addEventListener('change', function() {
+        if (this.value < 0) this.value = 0;
+        updateOrder();
+      });
+    });
+
+    // Actualizar la orden
+    function updateOrder() {
+      selectedItems = [];
+      let total = 0;
+      
+      // Obtener todos los inputs con cantidad > 0
+      document.querySelectorAll('.quantity-input').forEach(input => {
+        const quantity = parseInt(input.value);
+        if (quantity > 0) {
+          const name = input.getAttribute('data-item');
+          const price = parseInt(input.getAttribute('data-price'));
+          
+          selectedItems.push({ 
+            name, 
+            price,
+            quantity,
+            subtotal: price * quantity
+          });
+          total += price * quantity;
+        }
+      });
+      
+      // Mostrar u ocultar el botón de completar orden
+      if (selectedItems.length > 0) {
+        completeOrderBtn.classList.add('show');
+      } else {
+        completeOrderBtn.classList.remove('show');
+      }
+    }
+
+    // Mostrar el modal al hacer clic en completar orden
+    completeOrderBtn.addEventListener('click', () => {
+      if (selectedItems.length === 0) return;
+      
+      // Limpiar el resumen anterior
+      orderSummary.innerHTML = '';
+      let total = 0;
+      
+      // Agregar cada item al resumen
+      selectedItems.forEach(item => {
+        const orderItem = document.createElement('div');
+        orderItem.className = 'order-item';
+        orderItem.innerHTML = `
+          <span class="order-item-name">${item.name} (${item.quantity})</span>
+          <span class="order-item-price">$${item.subtotal}</span>
+        `;
+        orderSummary.appendChild(orderItem);
+        total += item.subtotal;
+      });
+      
+      // Actualizar el total
+      orderTotal.textContent = `$${total}`;
+      
+      // Generar el mensaje de WhatsApp
+      const message = generateWhatsAppMessage();
+      modalWhatsappBtn.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+      
+      // Mostrar el modal
+      orderModal.classList.add('active');
+    });
+
+    // Cerrar el modal
+    modalClose.addEventListener('click', () => {
+      orderModal.classList.remove('active');
+    });
+
+    // Generar el mensaje para WhatsApp
+    function generateWhatsAppMessage() {
+      let message = '¡Hola Bigotes Burger House! Quiero pedir:\n\n';
+      
+      selectedItems.forEach(item => {
+        message += `- ${item.quantity}x ${item.name} - $${item.subtotal}\n`;
+      });
+      
+      const total = selectedItems.reduce((sum, item) => sum + item.subtotal, 0);
+      message += `\nTotal: $${total}\n\n¡Gracias!`;
+      
+      return message;
+    }
+
+    // Cerrar modal al hacer clic fuera del contenido
+    orderModal.addEventListener('click', (e) => {
+      if (e.target === orderModal) {
+        orderModal.classList.remove('active');
+      }
+    });
+
+    // Smooth scroll para los enlaces de categoría
+    document.querySelectorAll('.category-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
 </body>
