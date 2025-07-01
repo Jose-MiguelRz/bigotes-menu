@@ -52,72 +52,71 @@
     }
 
     /* Header y Navegación */
-   header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: rgba(26, 26, 26, 0.98); /* Fondo más sólido */
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
-  /* Eliminamos todas las transiciones y efectos */
-}
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(26, 26, 26, 0.98);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
 
-  .nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 5%; /* Más compacto */
-  max-width: 1400px;
-  margin: 0 auto;
-  height: 60px; /* Altura fija */
-}
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 60px;
+    }
+
     .logo {
       display: flex;
       align-items: center;
       gap: 15px;
     }
 
-   .logo img {
-  height: 50px; /* Tamaño más compacto */
-  /* Eliminamos efectos hover */
-}
-/* Ajustar el margen superior del contenido principal */
-.hero {
-  margin-top: 70px; /* Reducir de 100px a 70px */
-}
+    .logo img {
+      height: 80px;
+      filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7));
+    }
 
-/* Eliminamos cualquier transformación o transición en los enlaces */
-.nav-link {
-  color: var(--light);
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 15px;
-  border-radius: 30px;
-  font-family: 'Amatic SC', cursive;
-  font-size: 1.4rem;
-  /* Sin transiciones */
-}
+    /* Ajustar el margen superior del contenido principal */
+    .hero {
+      margin-top: 70px;
+    }
 
-/* Ajustamos el margen superior del contenido */
-.section:first-of-type {
-  padding-top: 70px; /* Ajuste para el header estático */
-}
+    /* Eliminamos cualquier transformación o transición en los enlaces */
+    .nav-link {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.4rem;
+    }
 
-/* Para móviles */
-@media (max-width: 768px) {
-  .nav-container {
-    height: 50px; /* Altura fija en móviles */
-  }
-  
-  .logo img {
-    height: 40px; /* Más pequeño en móviles */
-  }
-  
-  .hero {
-    margin-top: 50px; /* Ajuste para móviles */
-  }
-}
- 
+    /* Ajustamos el margen superior del contenido */
+    .section:first-of-type {
+      padding-top: 70px;
+    }
+
+    /* Para móviles */
+    @media (max-width: 768px) {
+      .nav-container {
+        height: 50px;
+      }
+      
+      .logo img {
+        height: 60px;
+      }
+      
+      .hero {
+        margin-top: 50px;
+      }
+    }
 
     .nav-link:hover {
       color: var(--secondary);
@@ -151,7 +150,6 @@
       padding: 0 20px;
       position: relative;
       overflow: hidden;
-      margin-top: 100px;
     }
 
     .hero-content {
@@ -173,7 +171,7 @@
     }
 
     .hero-title img {
-      height: 180px;
+      height: 220px;
       filter: drop-shadow(0 0 8px var(--secondary));
       margin-bottom: 20px;
       transition: all 0.3s ease;
@@ -363,6 +361,36 @@
       font-size: 0.9rem;
       color: #aaa;
       font-style: italic;
+    }
+
+    /* Botones de extras */
+    .extras-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .extra-btn {
+      padding: 8px 15px;
+      background-color: rgba(255, 107, 0, 0.2);
+      border: 1px solid var(--primary);
+      border-radius: 20px;
+      color: var(--light);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .extra-btn:hover {
+      background-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .extra-btn.selected {
+      background-color: var(--primary);
+      color: white;
+      font-weight: bold;
     }
 
     /* Ubicación */
@@ -697,8 +725,10 @@
 
     /* Submenú de categorías */
     .category-nav {
-      position: sticky;
-      top: 70px; /* Cambiado de 100px a 70px */
+      position: fixed; /* Cambiado de sticky a fixed */
+      top: 60px; /* Ajustado para que quede justo debajo del header */
+      left: 0;
+      right: 0;
       background-color: rgba(26, 26, 26, 0.95);
       z-index: 999;
       padding: 15px 0;
@@ -707,7 +737,6 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 40px;
     }
 
     .category-link {
@@ -728,6 +757,11 @@
       transform: translateY(-2px);
     }
 
+    /* Ajuste para el espacio de las categorías fijas */
+    .menu-container {
+      padding-top: 70px; /* Espacio para que el contenido no quede oculto tras las categorías fijas */
+    }
+
     /* Responsive */
     @media (max-width: 1200px) {
       .hero-title {
@@ -735,7 +769,7 @@
       }
       
       .hero-title img {
-        height: 160px;
+        height: 200px;
       }
     }
 
@@ -753,7 +787,7 @@
       }
       
       .hero-title img {
-        height: 140px;
+        height: 180px;
       }
       
       .section-title {
@@ -764,10 +798,10 @@
     @media (max-width: 768px) {
       .nav-menu {
         position: fixed;
-        top: 100px;
+        top: 60px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 60px);
         background: var(--dark);
         flex-direction: column;
         align-items: center;
@@ -785,7 +819,7 @@
       }
       
       .hero {
-        margin-top: 80px;
+        margin-top: 60px;
       }
       
       .hero-title {
@@ -793,7 +827,7 @@
       }
       
       .hero-title img {
-        height: 120px;
+        height: 160px;
       }
       
       .hero-subtitle {
@@ -809,7 +843,7 @@
       }
 
       .category-nav {
-        top: 70px; /* Cambiado de 80px a 70px */
+        top: 60px;
         padding: 10px 5%;
         justify-content: flex-start;
         overflow-x: auto;
@@ -840,7 +874,7 @@
 
     @media (max-width: 576px) {
       .logo img {
-        height: 80px;
+        height: 70px;
       }
       
       .hero-title {
@@ -848,7 +882,7 @@
       }
       
       .hero-title img {
-        height: 100px;
+        height: 140px;
       }
       
       .hero-buttons {
@@ -893,7 +927,7 @@
   <header id="header">
     <div class="nav-container">
       <div class="logo">
-        <img src="logogrande.jpg" alt="Bigotes Logo">
+        <img src="logogrand.png" alt="Bigotes Logo">
       </div>
       
       <div class="hamburger" id="hamburger">
@@ -912,8 +946,7 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <h1 class="hero-title">
-        <img src="logogrande.jpg" alt="Logo Bigotes" />
-        Bigotes Burger House
+        <img src="logogrand.png" alt="Logo Bigotes" />
       </h1>
       <p class="hero-subtitle">Las alitas más jugosas, hamburguesas más explosivas y hot dogs más irresistibles de Cholula</p>
       <div class="hero-buttons">
@@ -933,8 +966,8 @@
       <a href="#hamburguesas" class="category-link">Hamburguesas</a>
       <a href="#hotdogs" class="category-link">Hot Dogs</a>
       <a href="#bigopapas" class="category-link">Bigo Papas</a>
-      <a href="#malteadas" class="category-link">Malteadas/Bebidas</a>
       <a href="#snacks" class="category-link">Snacks</a>
+      <a href="#malteadas" class="category-link">Malteadas/Bebidas</a>
       <a href="#promos" class="category-link">Promociones</a>
       <a href="#trios" class="category-link">Bigo Trio</a>
     </div>
@@ -1050,8 +1083,21 @@
           </div>
           
           <div class="menu-item">
-            <div class="item-description"><strong>Extras:</strong> Carne o Pollo $30 | Ingrediente $15</div>
-            <div class="item-description"><strong>Aderezos ($10 c/u):</strong> BBQ, Hot Buffalo, Mango Habanero, Chipo Mayo, Jalapeño Mayo, Crema de Ajo</div>
+            <div class="item-description"><strong>Extras:</strong></div>
+            <div class="extras-container">
+              <button class="extra-btn" data-item="Extra Carne" data-price="30">Carne $30</button>
+              <button class="extra-btn" data-item="Extra Pollo" data-price="30">Pollo $30</button>
+              <button class="extra-btn" data-item="Extra Ingrediente" data-price="15">Ingrediente $15</button>
+            </div>
+            <div class="item-description"><strong>Aderezos ($10 c/u):</strong></div>
+            <div class="extras-container">
+              <button class="extra-btn" data-item="Aderezo BBQ" data-price="10">BBQ</button>
+              <button class="extra-btn" data-item="Aderezo Hot Buffalo" data-price="10">Hot Buffalo</button>
+              <button class="extra-btn" data-item="Aderezo Mango Habanero" data-price="10">Mango Habanero</button>
+              <button class="extra-btn" data-item="Aderezo Chipo Mayo" data-price="10">Chipo Mayo</button>
+              <button class="extra-btn" data-item="Aderezo Jalapeño Mayo" data-price="10">Jalapeño Mayo</button>
+              <button class="extra-btn" data-item="Aderezo Crema de Ajo" data-price="10">Crema de Ajo</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1136,7 +1182,7 @@
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Francesas</span>
+              <span class="item-name">Francesas (200 gramos)</span>
               <span class="item-price">$39</span>
             </div>
             <div class="quantity-selector">
@@ -1160,7 +1206,7 @@
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Tocipapas</span>
+              <span class="item-name">Tocipapas (con tocino)</span>
               <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
@@ -1172,7 +1218,7 @@
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Choripapas</span>
+              <span class="item-name">Choripapas (con chorizo)</span>
               <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
@@ -1184,7 +1230,7 @@
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Fuego</span>
+              <span class="item-name">Fuego (salsa hot y jalapeño)</span>
               <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
@@ -1195,7 +1241,54 @@
           </div>
           
           <div class="menu-item">
-            <div class="item-description"><strong>Extra:</strong> Queso extra +$10</div>
+            <div class="item-description"><strong>Extra:</strong></div>
+            <div class="extras-container">
+              <button class="extra-btn" data-item="Queso extra" data-price="10">Queso extra +$10</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sección Snacks -->
+      <div class="menu-section" id="snacks">
+        <div class="section-header">
+          <h3 class="section-name">Snacks</h3>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Papas en Gajo</span>
+              <span class="item-price">$45</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Papas en Gajo" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas en Gajo" data-price="45">
+              <button class="quantity-btn plus" data-item="Papas en Gajo" data-price="45">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Aros de Cebolla</span>
+              <span class="item-price">$45</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Aros de Cebolla" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Aros de Cebolla" data-price="45">
+              <button class="quantity-btn plus" data-item="Aros de Cebolla" data-price="45">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Alitas</span>
+              <span class="item-price">$79</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Alitas" data-price="79">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Alitas" data-price="79">
+              <button class="quantity-btn plus" data-item="Alitas" data-price="79">+</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1311,50 +1404,6 @@
               <button class="quantity-btn minus" data-item="Agua Natural" data-price="20">-</button>
               <input type="number" class="quantity-input" value="0" min="0" data-item="Agua Natural" data-price="20">
               <button class="quantity-btn plus" data-item="Agua Natural" data-price="20">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Sección Snacks -->
-      <div class="menu-section" id="snacks">
-        <div class="section-header">
-          <h3 class="section-name">Snacks</h3>
-        </div>
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Papas en Gajo</span>
-              <span class="item-price">$45</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="Papas en Gajo" data-price="45">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas en Gajo" data-price="45">
-              <button class="quantity-btn plus" data-item="Papas en Gajo" data-price="45">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Aros de Cebolla</span>
-              <span class="item-price">$45</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="Aros de Cebolla" data-price="45">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="Aros de Cebolla" data-price="45">
-              <button class="quantity-btn plus" data-item="Aros de Cebolla" data-price="45">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">Alitas</span>
-              <span class="item-price">$79</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="Alitas" data-price="79">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="Alitas" data-price="79">
-              <button class="quantity-btn plus" data-item="Alitas" data-price="79">+</button>
             </div>
           </div>
         </div>
@@ -1594,6 +1643,14 @@
       });
     });
 
+    // Manejar los botones de extras
+    document.querySelectorAll('.extra-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('selected');
+        updateOrder();
+      });
+    });
+
     // Actualizar la orden
     function updateOrder() {
       selectedItems = [];
@@ -1614,6 +1671,20 @@
           });
           total += price * quantity;
         }
+      });
+      
+      // Obtener todos los extras seleccionados
+      document.querySelectorAll('.extra-btn.selected').forEach(btn => {
+        const name = btn.getAttribute('data-item');
+        const price = parseInt(btn.getAttribute('data-price'));
+        
+        selectedItems.push({
+          name,
+          price,
+          quantity: 1,
+          subtotal: price
+        });
+        total += price;
       });
       
       // Mostrar u ocultar el botón de completar orden
@@ -1637,7 +1708,7 @@
         const orderItem = document.createElement('div');
         orderItem.className = 'order-item';
         orderItem.innerHTML = `
-          <span class="order-item-name">${item.name} (${item.quantity})</span>
+          <span class="order-item-name">${item.name} ${item.quantity > 1 ? `(${item.quantity})` : ''}</span>
           <span class="order-item-price">$${item.subtotal}</span>
         `;
         orderSummary.appendChild(orderItem);
@@ -1665,7 +1736,7 @@
       let message = '¡Hola Bigotes Burger House! Quiero pedir:\n\n';
       
       selectedItems.forEach(item => {
-        message += `- ${item.quantity}x ${item.name} - $${item.subtotal}\n`;
+        message += `- ${item.quantity > 1 ? `${item.quantity}x ` : ''}${item.name} - $${item.subtotal}\n`;
       });
       
       const total = selectedItems.reduce((sum, item) => sum + item.subtotal, 0);
