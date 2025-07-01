@@ -936,7 +936,7 @@
         <a href="#snacks" class="category-link">Snacks</a>
         <a href="#malteadas" class="category-link">Malteadas/Bebidas</a>
         <a href="#promos" class="category-link">Promociones</a>
-        <a href="#trios" class="category-link">Bigo Trio</a>
+        <a href="#trios" class="category-link">Combos Bigo Trio</a>
       </div>
       
       <!-- Sección Hamburguesas -->
@@ -1427,45 +1427,45 @@
       <!-- Sección Bigo Trio -->
       <div class="menu-section" id="trios">
         <div class="section-header">
-          <h3 class="section-name">Bigo Trio</h3>
+          <h3 class="section-name">Combos Bigo Trio</h3>
         </div>
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Orden de Papas + Agua de sabor</span>
+              <span class="item-name">Combo 1: Papas + Agua de sabor</span>
               <span class="item-price">$35</span>
             </div>
-            <p class="item-description">Añadido opcional a cualquier hamburguesa o hot dog</p>
+            <p class="item-description">Agrega este combo a tu hamburguesa o hot dog para complementar tu comida</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="Papas + Agua de sabor" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas + Agua de sabor" data-price="35">
-              <button class="quantity-btn plus" data-item="Papas + Agua de sabor" data-price="35">+</button>
+              <button class="quantity-btn minus" data-item="Combo 1: Papas + Agua de sabor" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Combo 1: Papas + Agua de sabor" data-price="35">
+              <button class="quantity-btn plus" data-item="Combo 1: Papas + Agua de sabor" data-price="35">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Orden de Papas Francesas + Refresco</span>
+              <span class="item-name">Combo 2: Papas Francesas + Refresco</span>
               <span class="item-price">$40</span>
             </div>
-            <p class="item-description">Añadido opcional a cualquier hamburguesa o hot dog</p>
+            <p class="item-description">Perfecto para acompañar tu hamburguesa o hot dog favorito</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="Papas Francesas + Refresco" data-price="40">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas Francesas + Refresco" data-price="40">
-              <button class="quantity-btn plus" data-item="Papas Francesas + Refresco" data-price="40">+</button>
+              <button class="quantity-btn minus" data-item="Combo 2: Papas Francesas + Refresco" data-price="40">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Combo 2: Papas Francesas + Refresco" data-price="40">
+              <button class="quantity-btn plus" data-item="Combo 2: Papas Francesas + Refresco" data-price="40">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">Orden de Papas + Malteada</span>
+              <span class="item-name">Combo 3: Papas + Malteada</span>
               <span class="item-price">$70</span>
             </div>
-            <p class="item-description">Añadido opcional a cualquier hamburguesa o hot dog</p>
+            <p class="item-description">El complemento ideal para tu hamburguesa o hot dog con una deliciosa malteada</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="Papas + Malteada" data-price="70">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas + Malteada" data-price="70">
-              <button class="quantity-btn plus" data-item="Papas + Malteada" data-price="70">+</button>
+              <button class="quantity-btn minus" data-item="Combo 3: Papas + Malteada" data-price="70">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Combo 3: Papas + Malteada" data-price="70">
+              <button class="quantity-btn plus" data-item="Combo 3: Papas + Malteada" data-price="70">+</button>
             </div>
           </div>
         </div>
@@ -1723,7 +1723,7 @@
       }
     });
 
-    // Smooth scroll para los enlaces de categoría
+    // Smooth scroll para los enlaces de categoría - CORREGIDO
     document.querySelectorAll('.category-link').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1731,10 +1731,21 @@
         const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
+          // Calcular la posición exacta considerando el header fijo
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const categoryNavHeight = document.querySelector('.category-nav').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight - categoryNavHeight;
+          
           window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: targetPosition,
             behavior: 'smooth'
           });
+          
+          // Resaltar la categoría seleccionada
+          document.querySelectorAll('.category-link').forEach(link => {
+            link.style.backgroundColor = '';
+          });
+          link.style.backgroundColor = 'rgba(255, 107, 0, 0.3)';
         }
       });
     });
