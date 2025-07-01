@@ -57,18 +57,19 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  transition: all 0.3s ease;
-  background-color: rgba(26, 26, 26, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Reducir sombra */
+  background-color: rgba(26, 26, 26, 0.98); /* Fondo más sólido */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  /* Eliminamos todas las transiciones y efectos */
 }
 
-   .nav-container {
+  .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5%; /* Reducir padding vertical */
+  padding: 8px 5%; /* Más compacto */
   max-width: 1400px;
   margin: 0 auto;
+  height: 60px; /* Altura fija */
 }
     .logo {
       display: flex;
@@ -76,52 +77,47 @@
       gap: 15px;
     }
 
-    .logo img {
-  height: 70px; /* Reducir de 100px a 70px */
-  filter: drop-shadow(0 0 3px var(--secondary)); /* Reducir sombra */
-  transition: all 0.3s ease;
+   .logo img {
+  height: 50px; /* Tamaño más compacto */
+  /* Eliminamos efectos hover */
 }
 /* Ajustar el margen superior del contenido principal */
 .hero {
   margin-top: 70px; /* Reducir de 100px a 70px */
 }
 
-/* Ajustar el menú para móviles */
+/* Eliminamos cualquier transformación o transición en los enlaces */
+.nav-link {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.4rem;
+  /* Sin transiciones */
+}
+
+/* Ajustamos el margen superior del contenido */
+.section:first-of-type {
+  padding-top: 70px; /* Ajuste para el header estático */
+}
+
+/* Para móviles */
 @media (max-width: 768px) {
   .nav-container {
-    padding: 8px 5%; /* Más compacto en móviles */
+    height: 50px; /* Altura fija en móviles */
   }
   
   .logo img {
-    height: 50px; /* Más pequeño en móviles */
+    height: 40px; /* Más pequeño en móviles */
   }
   
   .hero {
-    margin-top: 60px; /* Ajustar para móviles */
+    margin-top: 50px; /* Ajuste para móviles */
   }
 }
-
-    .logo:hover img {
-      transform: scale(1.05);
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-link {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 10px 20px;
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      position: relative;
-      font-family: 'Amatic SC', cursive;
-      font-size: 1.6rem;
-    }
+ 
 
     .nav-link:hover {
       color: var(--secondary);
@@ -702,7 +698,7 @@
     /* Submenú de categorías */
     .category-nav {
       position: sticky;
-      top: 100px;
+      top: 70px; /* Cambiado de 100px a 70px */
       background-color: rgba(26, 26, 26, 0.95);
       z-index: 999;
       padding: 15px 0;
@@ -813,7 +809,7 @@
       }
 
       .category-nav {
-        top: 80px;
+        top: 70px; /* Cambiado de 80px a 70px */
         padding: 10px 5%;
         justify-content: flex-start;
         overflow-x: auto;
