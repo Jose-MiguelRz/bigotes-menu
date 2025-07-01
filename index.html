@@ -276,6 +276,40 @@
       margin: 0 auto;
     }
 
+    /* Submenú de categorías */
+    .category-nav {
+      position: sticky;
+      top: 120px; /* Ajustado para que quede justo debajo del título */
+      background-color: rgba(26, 26, 26, 0.95);
+      z-index: 999;
+      padding: 15px 0;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: -30px; /* Para acercarlo al título */
+      margin-bottom: 30px;
+    }
+
+    .category-link {
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      color: var(--light);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.4rem;
+    }
+
+    .category-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
     .menu-section {
       margin-bottom: 70px;
       background: rgba(255, 255, 255, 0.05);
@@ -723,45 +757,6 @@
       box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
     }
 
-    /* Submenú de categorías */
-    .category-nav {
-      position: fixed; /* Cambiado de sticky a fixed */
-      top: 60px; /* Ajustado para que quede justo debajo del header */
-      left: 0;
-      right: 0;
-      background-color: rgba(26, 26, 26, 0.95);
-      z-index: 999;
-      padding: 15px 0;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .category-link {
-      padding: 10px 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      color: var(--light);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      font-family: 'Amatic SC', cursive;
-      font-size: 1.4rem;
-    }
-
-    .category-link:hover {
-      background-color: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Ajuste para el espacio de las categorías fijas */
-    .menu-container {
-      padding-top: 70px; /* Espacio para que el contenido no quede oculto tras las categorías fijas */
-    }
-
     /* Responsive */
     @media (max-width: 1200px) {
       .hero-title {
@@ -843,7 +838,7 @@
       }
 
       .category-nav {
-        top: 60px;
+        top: 100px;
         padding: 10px 5%;
         justify-content: flex-start;
         overflow-x: auto;
@@ -961,18 +956,18 @@
     <div class="section-bg" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1098&q=80');"></div>
     <h2 class="section-title">Nuestro Menú</h2>
     
-    <!-- Submenú de categorías -->
-    <div class="category-nav" id="categoryNav">
-      <a href="#hamburguesas" class="category-link">Hamburguesas</a>
-      <a href="#hotdogs" class="category-link">Hot Dogs</a>
-      <a href="#bigopapas" class="category-link">Bigo Papas</a>
-      <a href="#snacks" class="category-link">Snacks</a>
-      <a href="#malteadas" class="category-link">Malteadas/Bebidas</a>
-      <a href="#promos" class="category-link">Promociones</a>
-      <a href="#trios" class="category-link">Bigo Trio</a>
-    </div>
-    
     <div class="menu-container">
+      <!-- Submenú de categorías -->
+      <div class="category-nav" id="categoryNav">
+        <a href="#hamburguesas" class="category-link">Hamburguesas</a>
+        <a href="#hotdogs" class="category-link">Hot Dogs</a>
+        <a href="#bigopapas" class="category-link">Bigo Papas</a>
+        <a href="#snacks" class="category-link">Snacks</a>
+        <a href="#malteadas" class="category-link">Malteadas/Bebidas</a>
+        <a href="#promos" class="category-link">Promociones</a>
+        <a href="#trios" class="category-link">Bigo Trio</a>
+      </div>
+      
       <!-- Sección Hamburguesas -->
       <div class="menu-section" id="hamburguesas">
         <div class="section-header">
