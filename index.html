@@ -52,46 +52,62 @@
     }
 
     /* Header y Navegación */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      background-color: rgba(26, 26, 26, 0.95);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    }
+   header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background-color: rgba(26, 26, 26, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Reducir sombra */
+}
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
+   .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%; /* Reducir padding vertical */
+  max-width: 1400px;
+  margin: 0 auto;
+}
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
     }
 
     .logo img {
-      height: 50px;
-      filter: drop-shadow(0 0 5px var(--secondary));
-    }
+  height: 70px; /* Reducir de 100px a 70px */
+  filter: drop-shadow(0 0 3px var(--secondary)); /* Reducir sombra */
+  transition: all 0.3s ease;
+}
+/* Ajustar el margen superior del contenido principal */
+.hero {
+  margin-top: 70px; /* Reducir de 100px a 70px */
+}
 
-    .logo-text {
-      font-family: 'Pacifico', cursive;
-      font-size: 1.8rem;
-      color: var(--secondary);
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+/* Ajustar el menú para móviles */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 8px 5%; /* Más compacto en móviles */
+  }
+  
+  .logo img {
+    height: 50px; /* Más pequeño en móviles */
+  }
+  
+  .hero {
+    margin-top: 60px; /* Ajustar para móviles */
+  }
+}
+
+    .logo:hover img {
+      transform: scale(1.05);
     }
 
     .nav-menu {
       display: flex;
-      gap: 15px;
+      gap: 20px;
     }
 
     .nav-link {
@@ -99,16 +115,17 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      padding: 8px 15px;
+      padding: 10px 20px;
       border-radius: 30px;
       transition: all 0.3s ease;
       position: relative;
       font-family: 'Amatic SC', cursive;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     .nav-link:hover {
       color: var(--secondary);
+      transform: translateY(-2px);
     }
 
     .nav-link.active {
@@ -119,8 +136,13 @@
     .hamburger {
       display: none;
       cursor: pointer;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: var(--light);
+      transition: all 0.3s ease;
+    }
+
+    .hamburger:hover {
+      color: var(--secondary);
     }
 
     /* Hero Section */
@@ -133,6 +155,7 @@
       padding: 0 20px;
       position: relative;
       overflow: hidden;
+      margin-top: 100px;
     }
 
     .hero-content {
@@ -143,44 +166,51 @@
 
     .hero-title {
       font-family: 'Amatic SC', cursive;
-      font-size: 4rem;
+      font-size: 4.5rem;
       color: var(--secondary);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 20px;
+      gap: 25px;
     }
 
     .hero-title img {
-      height: 80px;
-      filter: drop-shadow(0 0 5px var(--secondary));
+      height: 180px;
+      filter: drop-shadow(0 0 8px var(--secondary));
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .hero-title img:hover {
+      transform: scale(1.05);
     }
 
     .hero-subtitle {
       font-size: 1.5rem;
       margin-bottom: 30px;
       color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
     }
 
     .hero-buttons {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 30px;
+      padding: 15px 35px;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       font-family: 'Amatic SC', cursive;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     .btn-primary {
@@ -205,35 +235,15 @@
       transform: translateY(-3px);
     }
 
-    .btn-whatsapp {
-      background-color: #25D366;
-      color: white;
-      padding: 8px 15px;
-      font-size: 0.9rem;
-      margin-top: 10px;
-      display: inline-block;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #128C7E;
-      transform: translateY(-2px);
-    }
-
-    .btn-whatsapp i {
-      margin-right: 5px;
-    }
-
     /* Secciones */
     .section {
-      padding: 100px 5%;
+      padding: 120px 5% 100px;
       position: relative;
     }
 
     .section-title {
       font-family: 'Amatic SC', cursive;
-      font-size: 3rem;
+      font-size: 3.5rem;
       text-align: center;
       margin-bottom: 60px;
       color: var(--secondary);
@@ -243,11 +253,11 @@
     .section-title::after {
       content: '';
       display: block;
-      width: 100px;
-      height: 4px;
+      width: 120px;
+      height: 5px;
       background: var(--primary);
-      margin: 15px auto;
-      border-radius: 2px;
+      margin: 20px auto;
+      border-radius: 3px;
     }
 
     .section-bg {
@@ -273,13 +283,19 @@
     }
 
     .menu-section {
-      margin-bottom: 60px;
+      margin-bottom: 70px;
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       border-radius: 15px;
-      padding: 30px;
+      padding: 35px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       border-left: 5px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .menu-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
     }
 
     .section-header {
@@ -293,20 +309,20 @@
 
     .section-name {
       font-family: 'Amatic SC', cursive;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--secondary);
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
     }
 
     .menu-item {
       background: rgba(26, 26, 26, 0.7);
       border-radius: 10px;
-      padding: 20px;
+      padding: 25px;
       transition: all 0.3s ease;
       border-bottom: 3px solid var(--primary);
       position: relative;
@@ -315,46 +331,42 @@
     .menu-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      background: rgba(26, 26, 26, 0.8);
     }
 
     .item-header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       align-items: center;
     }
 
     .item-name {
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--secondary);
     }
 
     .item-price {
       color: var(--primary);
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       background: rgba(255, 107, 0, 0.2);
-      padding: 3px 10px;
+      padding: 5px 12px;
       border-radius: 20px;
     }
 
     .item-description {
       color: #ccc;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
+      font-size: 1rem;
+      margin-bottom: 15px;
     }
 
     .item-options {
-      margin-top: 10px;
-      font-size: 0.8rem;
+      margin-top: 15px;
+      font-size: 0.9rem;
       color: #aaa;
       font-style: italic;
-    }
-
-    .menu-highlight {
-      text-align: center;
-      margin: 40px 0;
     }
 
     /* Ubicación */
@@ -374,40 +386,46 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
       gap: 30px;
     }
 
     .info-card {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
-      padding: 25px;
+      padding: 30px;
       border-radius: 10px;
       flex: 1;
       text-align: center;
       transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .info-card:hover {
       transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
 
     .info-icon {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .info-title {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
       color: var(--secondary);
+    }
+
+    .info-card p {
+      font-size: 1.1rem;
     }
 
     .map-container {
       width: 100%;
-      height: 400px;
+      height: 450px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -422,40 +440,41 @@
     /* Footer */
     footer {
       background-color: #000;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
       color: var(--light);
       font-family: 'Montserrat', sans-serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .social-links {
-      margin-top: 15px;
+      margin-top: 20px;
     }
 
     .social-links a {
       color: var(--secondary);
-      margin: 0 10px;
-      font-size: 1.5rem;
+      margin: 0 15px;
+      font-size: 1.8rem;
       transition: all 0.3s ease;
     }
 
     .social-links a:hover {
       color: var(--primary);
+      transform: translateY(-3px);
     }
 
-    /* WhatsApp Button */
+    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      width: 60px;
-      height: 60px;
+      width: 70px;
+      height: 70px;
       background-color: #25D366;
       color: white;
       border-radius: 50%;
       text-align: center;
-      font-size: 30px;
+      font-size: 35px;
       box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
       z-index: 100;
       display: flex;
@@ -499,18 +518,18 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-top: 15px;
-      gap: 5px;
+      margin-top: 20px;
+      gap: 8px;
     }
 
     .quantity-btn {
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
       background-color: var(--primary);
       color: white;
       border: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -520,17 +539,19 @@
 
     .quantity-btn:hover {
       background-color: #e05e00;
+      transform: scale(1.1);
     }
 
     .quantity-input {
-      width: 40px;
-      height: 30px;
+      width: 50px;
+      height: 35px;
       text-align: center;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background-color: rgba(255, 255, 255, 0.05);
       color: white;
       border-radius: 5px;
       font-weight: bold;
+      font-size: 1rem;
     }
 
     /* Botón de completar orden */
@@ -540,17 +561,19 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 99;
-      padding: 15px 30px;
+      padding: 18px 35px;
       background-color: var(--primary);
       color: white;
       border: none;
       border-radius: 50px;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       cursor: pointer;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
       display: none;
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.8rem;
     }
 
     .complete-order-btn:hover {
@@ -588,7 +611,7 @@
 
     .modal-content {
       background-color: var(--dark);
-      padding: 30px;
+      padding: 35px;
       border-radius: 15px;
       width: 90%;
       max-width: 500px;
@@ -601,32 +624,39 @@
 
     .modal-close {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 20px;
+      right: 20px;
       background: none;
       border: none;
       color: var(--light);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--primary);
+      transform: rotate(90deg);
     }
 
     .modal-title {
       font-family: 'Amatic SC', cursive;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--secondary);
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       text-align: center;
     }
 
     .order-summary {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     .order-item {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0;
+      padding: 12px 0;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+      font-size: 1.1rem;
     }
 
     .order-item-name {
@@ -641,36 +671,38 @@
     .order-total {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
-      padding-top: 10px;
+      margin-top: 25px;
+      padding-top: 15px;
       border-top: 2px solid var(--primary);
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: bold;
     }
 
     .modal-whatsapp-btn {
       display: block;
       width: 100%;
-      padding: 15px;
+      padding: 18px;
       background-color: #25D366;
       color: white;
       text-align: center;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
-      margin-top: 20px;
+      margin-top: 25px;
       transition: all 0.3s ease;
+      font-size: 1.2rem;
     }
 
     .modal-whatsapp-btn:hover {
       background-color: #128C7E;
       transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
     }
 
     /* Submenú de categorías */
     .category-nav {
       position: sticky;
-      top: 80px;
+      top: 100px;
       background-color: rgba(26, 26, 26, 0.95);
       z-index: 999;
       padding: 15px 0;
@@ -678,25 +710,39 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 40px;
     }
 
     .category-link {
-      padding: 8px 15px;
+      padding: 10px 20px;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
       color: var(--light);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 1rem;
       transition: all 0.3s ease;
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.4rem;
     }
 
     .category-link:hover {
       background-color: var(--primary);
       color: white;
+      transform: translateY(-2px);
     }
 
     /* Responsive */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 4rem;
+      }
+      
+      .hero-title img {
+        height: 160px;
+      }
+    }
+
     @media (max-width: 992px) {
       .location-info {
         flex-direction: column;
@@ -705,15 +751,27 @@
       .info-card {
         width: 100%;
       }
+      
+      .hero-title {
+        font-size: 3.5rem;
+      }
+      
+      .hero-title img {
+        height: 140px;
+      }
+      
+      .section-title {
+        font-size: 3rem;
+      }
     }
 
     @media (max-width: 768px) {
       .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 100px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 100px);
         background: var(--dark);
         flex-direction: column;
         align-items: center;
@@ -730,13 +788,16 @@
         display: block;
       }
       
+      .hero {
+        margin-top: 80px;
+      }
+      
       .hero-title {
         font-size: 3rem;
-        flex-direction: column;
       }
       
       .hero-title img {
-        height: 60px;
+        height: 120px;
       }
       
       .hero-subtitle {
@@ -744,7 +805,7 @@
       }
       
       .section-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       
       .menu-grid {
@@ -752,7 +813,7 @@
       }
 
       .category-nav {
-        top: 70px;
+        top: 80px;
         padding: 10px 5%;
         justify-content: flex-start;
         overflow-x: auto;
@@ -761,19 +822,37 @@
       }
 
       .category-link {
-        font-size: 0.8rem;
-        padding: 6px 12px;
+        font-size: 1.2rem;
+        padding: 8px 15px;
       }
 
       .complete-order-btn {
         width: 90%;
         text-align: center;
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+      
+      .info-card {
+        padding: 25px;
+      }
+      
+      .info-title {
+        font-size: 1.4rem;
       }
     }
 
     @media (max-width: 576px) {
+      .logo img {
+        height: 80px;
+      }
+      
       .hero-title {
         font-size: 2.5rem;
+      }
+      
+      .hero-title img {
+        height: 100px;
       }
       
       .hero-buttons {
@@ -786,15 +865,29 @@
       }
       
       .section {
-        padding: 80px 20px;
+        padding: 100px 20px 80px;
       }
       
       .section-name {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
       .menu-section {
-        padding: 20px;
+        padding: 25px;
+      }
+      
+      .modal-content {
+        padding: 25px;
+      }
+      
+      .modal-title {
+        font-size: 2.2rem;
+      }
+      
+      .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
       }
     }
   </style>
@@ -804,8 +897,7 @@
   <header id="header">
     <div class="nav-container">
       <div class="logo">
-        <img src="b.png" alt="Bigotes Logo">
-        <span class="logo-text">Bigotes Burger House</span>
+        <img src="logogrande.jpg" alt="Bigotes Logo">
       </div>
       
       <div class="hamburger" id="hamburger">
@@ -823,7 +915,10 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1 class="hero-title"><img src="b.png" alt="Logo Bigotes" /> Bigotes Burger House</h1>
+      <h1 class="hero-title">
+        <img src="logogrande.jpg" alt="Logo Bigotes" />
+        Bigotes Burger House
+      </h1>
       <p class="hero-subtitle">Las alitas más jugosas, hamburguesas más explosivas y hot dogs más irresistibles de Cholula</p>
       <div class="hero-buttons">
         <a href="#menu" class="btn btn-primary">Ver Menú</a>
@@ -839,329 +934,128 @@
     
     <!-- Submenú de categorías -->
     <div class="category-nav" id="categoryNav">
-      <a href="#paquetes" class="category-link">Paquetes</a>
       <a href="#hamburguesas" class="category-link">Hamburguesas</a>
-      <a href="#premium" class="category-link">Premium</a>
       <a href="#hotdogs" class="category-link">Hot Dogs</a>
-      <a href="#alitas" class="category-link">Alitas</a>
-      <a href="#malteadas" class="category-link">Malteadas</a>
+      <a href="#bigopapas" class="category-link">Bigo Papas</a>
+      <a href="#malteadas" class="category-link">Malteadas/Bebidas</a>
       <a href="#snacks" class="category-link">Snacks</a>
-      <a href="#bebidas" class="category-link">Bebidas</a>
+      <a href="#promos" class="category-link">Promociones</a>
+      <a href="#trios" class="category-link">Bigo Trio</a>
     </div>
     
     <div class="menu-container">
-      <!-- Sección Paquetes -->
-      <div class="menu-section" id="paquetes">
-        <div class="section-header">
-          <h3 class="section-name">Paquetes Especiales</h3>
-        </div>
-        <div class="menu-grid">
-          <!-- Paquete Burger -->
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">PAQUETE BURGER</span>
-              <span class="item-price">$99</span>
-            </div>
-            <p class="item-description">Hamburguesa a elegir + Papas Francesa + Bebida</p>
-            <p class="item-options">Opciones de hamburguesa: C/Queso, Pollo, Especial, Hawaiana, Choriqueso, Onion King, Blue Cheese, BBQ, Hot</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAQUETE BURGER" data-price="99">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE BURGER" data-price="99">
-              <button class="quantity-btn plus" data-item="PAQUETE BURGER" data-price="99">+</button>
-            </div>
-          </div>
-          
-          <!-- Opciones Premium -->
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">OPCIONES PREMIUM</span>
-              <span class="item-price">$119</span>
-            </div>
-            <p class="item-description">Hamburguesa premium + Papas Francesa + Bebida</p>
-            <p class="item-options">Opciones: 3 Quesos, Champion con Queso y Champiñones, Mostachona (queso, salchicha, jamón, tocino), Bigotona (doble carne y doble queso)</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="OPCIONES PREMIUM" data-price="119">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="OPCIONES PREMIUM" data-price="119">
-              <button class="quantity-btn plus" data-item="OPCIONES PREMIUM" data-price="119">+</button>
-            </div>
-          </div>
-          
-          <!-- Paquete Hunger -->
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">PAQUETE HUNGER</span>
-              <span class="item-price">$125</span>
-            </div>
-            <p class="item-description">Hamburguesa con queso + Hot dog con queso + Papas Francesas + 1 Bebida</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAQUETE HUNGER" data-price="125">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE HUNGER" data-price="125">
-              <button class="quantity-btn plus" data-item="PAQUETE HUNGER" data-price="125">+</button>
-            </div>
-          </div>
-          
-          <!-- Paquete Par -->
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">PAQUETE PAR</span>
-              <span class="item-price">$185</span>
-            </div>
-            <p class="item-description">2 Hamburguesas con queso + 2 Papas Francesa + 2 Bebidas</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAQUETE PAR" data-price="185">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE PAR" data-price="185">
-              <button class="quantity-btn plus" data-item="PAQUETE PAR" data-price="185">+</button>
-            </div>
-          </div>
-          
-          <!-- Paquete Alitas -->
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">PAQUETE ALITAS</span>
-              <span class="item-price">$99</span>
-            </div>
-            <p class="item-description">Orden de Alitas + Papas Francesas + Bebida</p>
-            <p class="item-options">Sabores: BBQ, Hot, Blue Cheese, Parmesano</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAQUETE ALITAS" data-price="99">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE ALITAS" data-price="99">
-              <button class="quantity-btn plus" data-item="PAQUETE ALITAS" data-price="99">+</button>
-            </div>
-          </div>
-          
-          <!-- Paquete Jocho -->
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">PAQUETE JOCHO</span>
-              <span class="item-price">$78</span>
-            </div>
-            <p class="item-description">Hot dog a elegir + Papas Francesa + Bebida</p>
-            <p class="item-options">Opciones: Con Queso, Especial (tocino y queso), Blue Cheese, BBQ, Hot, Hawaiano, Champion (queso y champiñones)</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAQUETE JOCHO" data-price="78">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAQUETE JOCHO" data-price="78">
-              <button class="quantity-btn plus" data-item="PAQUETE JOCHO" data-price="78">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Sección Hamburguesas Clásicas -->
+      <!-- Sección Hamburguesas -->
       <div class="menu-section" id="hamburguesas">
         <div class="section-header">
-          <h3 class="section-name">Bigoburguesas</h3>
+          <h3 class="section-name">Hamburguesas</h3>
         </div>
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">CHEESEBURGER</span>
-              <span class="item-price">$35</span>
+              <span class="item-name">Hamburguesa c/ Queso</span>
+              <span class="item-price">$75</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="CHEESEBURGER" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="CHEESEBURGER" data-price="35">
-              <button class="quantity-btn plus" data-item="CHEESEBURGER" data-price="35">+</button>
+              <button class="quantity-btn minus" data-item="Hamburguesa c/ Queso" data-price="75">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hamburguesa c/ Queso" data-price="75">
+              <button class="quantity-btn plus" data-item="Hamburguesa c/ Queso" data-price="75">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">SENCILLA</span>
-              <span class="item-price">$55</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="SENCILLA" data-price="55">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="SENCILLA" data-price="55">
-              <button class="quantity-btn plus" data-item="SENCILLA" data-price="55">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">C/QUESO</span>
-              <span class="item-price">$59</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="C/QUESO" data-price="59">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="C/QUESO" data-price="59">
-              <button class="quantity-btn plus" data-item="C/QUESO" data-price="59">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">POLLO</span>
-              <span class="item-price">$59</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="POLLO" data-price="59">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="POLLO" data-price="59">
-              <button class="quantity-btn plus" data-item="POLLO" data-price="59">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">ESPECIAL</span>
-              <span class="item-price">$65</span>
-            </div>
-            <p class="item-description">Con tocino y queso</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="ESPECIAL" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="ESPECIAL" data-price="65">
-              <button class="quantity-btn plus" data-item="ESPECIAL" data-price="65">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">HAWAIANA</span>
-              <span class="item-price">$65</span>
+              <span class="item-name">Hawaiana</span>
+              <span class="item-price">$85</span>
             </div>
             <p class="item-description">Con piña, jamón y queso</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HAWAIANA" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HAWAIANA" data-price="65">
-              <button class="quantity-btn plus" data-item="HAWAIANA" data-price="65">+</button>
+              <button class="quantity-btn minus" data-item="Hawaiana" data-price="85">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hawaiana" data-price="85">
+              <button class="quantity-btn plus" data-item="Hawaiana" data-price="85">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">CHORIQUESO</span>
-              <span class="item-price">$65</span>
+              <span class="item-name">Especial (Tocino)</span>
+              <span class="item-price">$85</span>
             </div>
-            <p class="item-description">Con chorizo y queso</p>
+            <p class="item-description">Con tocino y queso</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="CHORIQUESO" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="CHORIQUESO" data-price="65">
-              <button class="quantity-btn plus" data-item="CHORIQUESO" data-price="65">+</button>
+              <button class="quantity-btn minus" data-item="Especial (Tocino)" data-price="85">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Especial (Tocino)" data-price="85">
+              <button class="quantity-btn plus" data-item="Especial (Tocino)" data-price="85">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">ONION KING</span>
-              <span class="item-price">$65</span>
+              <span class="item-name">Farmer (Huevo)</span>
+              <span class="item-price">$85</span>
+            </div>
+            <p class="item-description">Con huevo</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Farmer (Huevo)" data-price="85">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Farmer (Huevo)" data-price="85">
+              <button class="quantity-btn plus" data-item="Farmer (Huevo)" data-price="85">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Onion King</span>
+              <span class="item-price">$85</span>
             </div>
             <p class="item-description">Con queso y aros de cebolla</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="ONION KING" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="ONION KING" data-price="65">
-              <button class="quantity-btn plus" data-item="ONION KING" data-price="65">+</button>
+              <button class="quantity-btn minus" data-item="Onion King" data-price="85">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Onion King" data-price="85">
+              <button class="quantity-btn plus" data-item="Onion King" data-price="85">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">BLUE CHEESE</span>
-              <span class="item-price">$65</span>
+              <span class="item-name">Choriqueso</span>
+              <span class="item-price">$85</span>
             </div>
-            <p class="item-description">Con queso y aderezo</p>
+            <p class="item-description">Con chorizo y queso</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="BLUE CHEESE" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="BLUE CHEESE" data-price="65">
-              <button class="quantity-btn plus" data-item="BLUE CHEESE" data-price="65">+</button>
+              <button class="quantity-btn minus" data-item="Choriqueso" data-price="85">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Choriqueso" data-price="85">
+              <button class="quantity-btn plus" data-item="Choriqueso" data-price="85">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">BBQ</span>
-              <span class="item-price">$65</span>
-            </div>
-            <p class="item-description">Con queso y aderezo</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="BBQ" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="BBQ" data-price="65">
-              <button class="quantity-btn plus" data-item="BBQ" data-price="65">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">HOT</span>
-              <span class="item-price">$65</span>
-            </div>
-            <p class="item-description">Con queso y aderezo</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT" data-price="65">
-              <button class="quantity-btn plus" data-item="HOT" data-price="65">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">VEGGIE</span>
-              <span class="item-price">$65</span>
-            </div>
-            <p class="item-description">Con mix de champiñones y queso (sin carne)</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="VEGGIE" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="VEGGIE" data-price="65">
-              <button class="quantity-btn plus" data-item="VEGGIE" data-price="65">+</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Sección Hamburguesas Premium -->
-      <div class="menu-section" id="premium">
-        <div class="section-header">
-          <h3 class="section-name">Hamburguesas Premium</h3>
-        </div>
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">3 QUESOS</span>
-              <span class="item-price">$75</span>
+              <span class="item-name">3 Quesos</span>
+              <span class="item-price">$99</span>
             </div>
             <p class="item-description">Manchego, Amarillo, Quesillo</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="3 QUESOS" data-price="75">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="3 QUESOS" data-price="75">
-              <button class="quantity-btn plus" data-item="3 QUESOS" data-price="75">+</button>
+              <button class="quantity-btn minus" data-item="3 Quesos" data-price="99">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="3 Quesos" data-price="99">
+              <button class="quantity-btn plus" data-item="3 Quesos" data-price="99">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">CHAMPION</span>
-              <span class="item-price">$75</span>
+              <span class="item-name">Mostachona</span>
+              <span class="item-price">$99</span>
             </div>
-            <p class="item-description">Con queso y champiñones</p>
+            <p class="item-description">Con queso, salchicha, jamón y tocino</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="CHAMPION" data-price="75">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="CHAMPION" data-price="75">
-              <button class="quantity-btn plus" data-item="CHAMPION" data-price="75">+</button>
+              <button class="quantity-btn minus" data-item="Mostachona" data-price="99">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Mostachona" data-price="99">
+              <button class="quantity-btn plus" data-item="Mostachona" data-price="99">+</button>
             </div>
           </div>
           
           <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">MOSTACHONA</span>
-              <span class="item-price">$79</span>
-            </div>
-            <p class="item-description">Con queso, tocino, jamón y salchicha</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="MOSTACHONA" data-price="79">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="MOSTACHONA" data-price="79">
-              <button class="quantity-btn plus" data-item="MOSTACHONA" data-price="79">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">BIGOTONA</span>
-              <span class="item-price">$89</span>
-            </div>
-            <p class="item-description">Con doble carne y doble queso</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="BIGOTONA" data-price="89">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="BIGOTONA" data-price="89">
-              <button class="quantity-btn plus" data-item="BIGOTONA" data-price="89">+</button>
-            </div>
+            <div class="item-description"><strong>Extras:</strong> Carne o Pollo $30 | Ingrediente $15</div>
+            <div class="item-description"><strong>Aderezos ($10 c/u):</strong> BBQ, Hot Buffalo, Mango Habanero, Chipo Mayo, Jalapeño Mayo, Crema de Ajo</div>
           </div>
         </div>
       </div>
@@ -1169,187 +1063,258 @@
       <!-- Sección Hot Dogs -->
       <div class="menu-section" id="hotdogs">
         <div class="section-header">
-          <h3 class="section-name">Jochos</h3>
+          <h3 class="section-name">Hot Dogs</h3>
         </div>
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">C/QUESO</span>
-              <span class="item-price">$30</span>
+              <span class="item-name">Con Queso</span>
+              <span class="item-price">$49</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG C/QUESO" data-price="30">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG C/QUESO" data-price="30">
-              <button class="quantity-btn plus" data-item="HOT DOG C/QUESO" data-price="30">+</button>
+              <button class="quantity-btn minus" data-item="Hot Dog Con Queso" data-price="49">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hot Dog Con Queso" data-price="49">
+              <button class="quantity-btn plus" data-item="Hot Dog Con Queso" data-price="49">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">ESPECIAL</span>
-              <span class="item-price">$35</span>
-            </div>
-            <p class="item-description">Con tocino y queso</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG ESPECIAL" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG ESPECIAL" data-price="35">
-              <button class="quantity-btn plus" data-item="HOT DOG ESPECIAL" data-price="35">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">BBQ</span>
-              <span class="item-price">$35</span>
-            </div>
-            <p class="item-description">Con queso</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG BBQ" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG BBQ" data-price="35">
-              <button class="quantity-btn plus" data-item="HOT DOG BBQ" data-price="35">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">HOT</span>
-              <span class="item-price">$35</span>
-            </div>
-            <p class="item-description">Con queso</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG HOT" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG HOT" data-price="35">
-              <button class="quantity-btn plus" data-item="HOT DOG HOT" data-price="35">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">BLUE CHEESE</span>
-              <span class="item-price">$35</span>
-            </div>
-            <p class="item-description">Con queso</p>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG BLUE CHEESE" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG BLUE CHEESE" data-price="35">
-              <button class="quantity-btn plus" data-item="HOT DOG BLUE CHEESE" data-price="35">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">HAWAIANO</span>
-              <span class="item-price">$40</span>
+              <span class="item-name">Hawaiano</span>
+              <span class="item-price">$55</span>
             </div>
             <p class="item-description">Con queso, piña y jamón</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG HAWAIANO" data-price="40">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG HAWAIANO" data-price="40">
-              <button class="quantity-btn plus" data-item="HOT DOG HAWAIANO" data-price="40">+</button>
+              <button class="quantity-btn minus" data-item="Hot Dog Hawaiano" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hot Dog Hawaiano" data-price="55">
+              <button class="quantity-btn plus" data-item="Hot Dog Hawaiano" data-price="55">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">CHAMPION</span>
-              <span class="item-price">$45</span>
+              <span class="item-name">Especial</span>
+              <span class="item-price">$55</span>
             </div>
-            <p class="item-description">Con queso y champiñones</p>
+            <p class="item-description">Con tocino y queso</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="HOT DOG CHAMPION" data-price="45">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="HOT DOG CHAMPION" data-price="45">
-              <button class="quantity-btn plus" data-item="HOT DOG CHAMPION" data-price="45">+</button>
+              <button class="quantity-btn minus" data-item="Hot Dog Especial" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hot Dog Especial" data-price="55">
+              <button class="quantity-btn plus" data-item="Hot Dog Especial" data-price="55">+</button>
             </div>
           </div>
-        </div>
-      </div>
-      
-      <!-- Sección Alitas -->
-      <div class="menu-section" id="alitas">
-        <div class="section-header">
-          <h3 class="section-name">Alitas Adobadas</h3>
-        </div>
-        <div class="menu-grid">
+          
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">ORDEN DE ALITAS</span>
+              <span class="item-name">Choriqueso</span>
               <span class="item-price">$65</span>
             </div>
-            <p class="item-description">350 grs (8 piezas aprox.) con 1 aderezo</p>
-            <p class="item-options">Sabores: Parmesano, Blue Cheese, BBQ, Hot</p>
-            <p class="item-options">Aderezo extra: +$5</p>
+            <p class="item-description">Con chorizo y queso</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="ORDEN DE ALITAS" data-price="65">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="ORDEN DE ALITAS" data-price="65">
-              <button class="quantity-btn plus" data-item="ORDEN DE ALITAS" data-price="65">+</button>
+              <button class="quantity-btn minus" data-item="Hot Dog Choriqueso" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hot Dog Choriqueso" data-price="65">
+              <button class="quantity-btn plus" data-item="Hot Dog Choriqueso" data-price="65">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">3 Quesos</span>
+              <span class="item-price">$65</span>
+            </div>
+            <p class="item-description">Manchego, Amarillo, Quesillo</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Hot Dog 3 Quesos" data-price="65">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Hot Dog 3 Quesos" data-price="65">
+              <button class="quantity-btn plus" data-item="Hot Dog 3 Quesos" data-price="65">+</button>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Sección Malteadas -->
-      <div class="menu-section" id="malteadas">
+      <!-- Sección Bigo Papas -->
+      <div class="menu-section" id="bigopapas">
         <div class="section-header">
-          <h3 class="section-name">Malteadas</h3>
+          <h3 class="section-name">Bigo Papas</h3>
         </div>
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">VAINILLA</span>
+              <span class="item-name">Francesas</span>
+              <span class="item-price">$39</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Papas Francesas" data-price="39">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas Francesas" data-price="39">
+              <button class="quantity-btn plus" data-item="Papas Francesas" data-price="39">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Salchipapas</span>
               <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="MALTEADA DE VAINILLA" data-price="45">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE VAINILLA" data-price="45">
-              <button class="quantity-btn plus" data-item="MALTEADA DE VAINILLA" data-price="45">+</button>
+              <button class="quantity-btn minus" data-item="Salchipapas" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Salchipapas" data-price="45">
+              <button class="quantity-btn plus" data-item="Salchipapas" data-price="45">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">FRESA</span>
+              <span class="item-name">Tocipapas</span>
               <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="MALTEADA DE FRESA" data-price="45">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE FRESA" data-price="45">
-              <button class="quantity-btn plus" data-item="MALTEADA DE FRESA" data-price="45">+</button>
+              <button class="quantity-btn minus" data-item="Tocipapas" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Tocipapas" data-price="45">
+              <button class="quantity-btn plus" data-item="Tocipapas" data-price="45">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">NUTELLA</span>
-              <span class="item-price">$55</span>
+              <span class="item-name">Choripapas</span>
+              <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="MALTEADA DE NUTELLA" data-price="55">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE NUTELLA" data-price="55">
-              <button class="quantity-btn plus" data-item="MALTEADA DE NUTELLA" data-price="55">+</button>
+              <button class="quantity-btn minus" data-item="Choripapas" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Choripapas" data-price="45">
+              <button class="quantity-btn plus" data-item="Choripapas" data-price="45">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">MAZAPAN</span>
+              <span class="item-name">Fuego</span>
+              <span class="item-price">$45</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Papas Fuego" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas Fuego" data-price="45">
+              <button class="quantity-btn plus" data-item="Papas Fuego" data-price="45">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-description"><strong>Extra:</strong> Queso extra +$10</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sección Malteadas/Bebidas -->
+      <div class="menu-section" id="malteadas">
+        <div class="section-header">
+          <h3 class="section-name">Malteadas/Bebidas</h3>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Fresa</span>
               <span class="item-price">$55</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="MALTEADA DE MAZAPAN" data-price="55">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA DE MAZAPAN" data-price="55">
-              <button class="quantity-btn plus" data-item="MALTEADA DE MAZAPAN" data-price="55">+</button>
+              <button class="quantity-btn minus" data-item="Malteada Fresa" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Malteada Fresa" data-price="55">
+              <button class="quantity-btn plus" data-item="Malteada Fresa" data-price="55">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">CHOCOFRESA</span>
+              <span class="item-name">Vainilla</span>
               <span class="item-price">$55</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="MALTEADA CHOCOFRESA" data-price="55">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="MALTEADA CHOCOFRESA" data-price="55">
-              <button class="quantity-btn plus" data-item="MALTEADA CHOCOFRESA" data-price="55">+</button>
+              <button class="quantity-btn minus" data-item="Malteada Vainilla" data-price="55">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Malteada Vainilla" data-price="55">
+              <button class="quantity-btn plus" data-item="Malteada Vainilla" data-price="55">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Nutella</span>
+              <span class="item-price">$70</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Malteada Nutella" data-price="70">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Malteada Nutella" data-price="70">
+              <button class="quantity-btn plus" data-item="Malteada Nutella" data-price="70">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Chocofresa</span>
+              <span class="item-price">$70</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Malteada Chocofresa" data-price="70">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Malteada Chocofresa" data-price="70">
+              <button class="quantity-btn plus" data-item="Malteada Chocofresa" data-price="70">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Mazapán</span>
+              <span class="item-price">$60</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Malteada Mazapán" data-price="60">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Malteada Mazapán" data-price="60">
+              <button class="quantity-btn plus" data-item="Malteada Mazapán" data-price="60">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Refresco</span>
+              <span class="item-price">$30</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Refresco" data-price="30">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Refresco" data-price="30">
+              <button class="quantity-btn plus" data-item="Refresco" data-price="30">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Agua del día</span>
+              <span class="item-price">$25</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Agua del día" data-price="25">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Agua del día" data-price="25">
+              <button class="quantity-btn plus" data-item="Agua del día" data-price="25">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Boing</span>
+              <span class="item-price">$30</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Boing" data-price="30">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Boing" data-price="30">
+              <button class="quantity-btn plus" data-item="Boing" data-price="30">+</button>
+            </div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Agua Natural</span>
+              <span class="item-price">$20</span>
+            </div>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Agua Natural" data-price="20">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Agua Natural" data-price="20">
+              <button class="quantity-btn plus" data-item="Agua Natural" data-price="20">+</button>
             </div>
           </div>
         </div>
@@ -1363,143 +1328,128 @@
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">PAPAS A LA FRANCESA</span>
-              <span class="item-price">$25</span>
+              <span class="item-name">Papas en Gajo</span>
+              <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAPAS A LA FRANCESA" data-price="25">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAPAS A LA FRANCESA" data-price="25">
-              <button class="quantity-btn plus" data-item="PAPAS A LA FRANCESA" data-price="25">+</button>
+              <button class="quantity-btn minus" data-item="Papas en Gajo" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas en Gajo" data-price="45">
+              <button class="quantity-btn plus" data-item="Papas en Gajo" data-price="45">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">PAPAS GAJO</span>
-              <span class="item-price">$30</span>
+              <span class="item-name">Aros de Cebolla</span>
+              <span class="item-price">$45</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="PAPAS GAJO" data-price="30">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="PAPAS GAJO" data-price="30">
-              <button class="quantity-btn plus" data-item="PAPAS GAJO" data-price="30">+</button>
+              <button class="quantity-btn minus" data-item="Aros de Cebolla" data-price="45">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Aros de Cebolla" data-price="45">
+              <button class="quantity-btn plus" data-item="Aros de Cebolla" data-price="45">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">AROS DE CEBOLLA</span>
-              <span class="item-price">$35</span>
+              <span class="item-name">Alitas</span>
+              <span class="item-price">$79</span>
             </div>
-            <p class="item-description">8 piezas</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="AROS DE CEBOLLA" data-price="35">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="AROS DE CEBOLLA" data-price="35">
-              <button class="quantity-btn plus" data-item="AROS DE CEBOLLA" data-price="35">+</button>
+              <button class="quantity-btn minus" data-item="Alitas" data-price="79">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Alitas" data-price="79">
+              <button class="quantity-btn plus" data-item="Alitas" data-price="79">+</button>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Sección Bebidas -->
-      <div class="menu-section" id="bebidas">
+      <!-- Sección Promociones -->
+      <div class="menu-section" id="promos">
         <div class="section-header">
-          <h3 class="section-name">Bebidas</h3>
+          <h3 class="section-name">Promociones</h3>
         </div>
         <div class="menu-grid">
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">AGUA NATURAL</span>
-              <span class="item-price">$15</span>
+              <span class="item-name">Junior Burger</span>
+              <span class="item-price">$49</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="AGUA NATURAL" data-price="15">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="AGUA NATURAL" data-price="15">
-              <button class="quantity-btn plus" data-item="AGUA NATURAL" data-price="15">+</button>
+              <button class="quantity-btn minus" data-item="Junior Burger" data-price="49">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Junior Burger" data-price="49">
+              <button class="quantity-btn plus" data-item="Junior Burger" data-price="49">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">AGUA DE SABOR</span>
-              <span class="item-price">$20</span>
+              <span class="item-name">Doble c/ Queso Jr</span>
+              <span class="item-price">$75</span>
             </div>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="AGUA DE SABOR" data-price="20">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="AGUA DE SABOR" data-price="20">
-              <button class="quantity-btn plus" data-item="AGUA DE SABOR" data-price="20">+</button>
+              <button class="quantity-btn minus" data-item="Doble c/ Queso Jr" data-price="75">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Doble c/ Queso Jr" data-price="75">
+              <button class="quantity-btn plus" data-item="Doble c/ Queso Jr" data-price="75">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">BOING</span>
-              <span class="item-price">$20</span>
+              <span class="item-name">Triple c/ Queso Jr</span>
+              <span class="item-price">$99</span>
             </div>
-            <p class="item-description">Sabores: Mango, Guayaba, Fresa, Manzana</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="BOING" data-price="20">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="BOING" data-price="20">
-              <button class="quantity-btn plus" data-item="BOING" data-price="20">+</button>
+              <button class="quantity-btn minus" data-item="Triple c/ Queso Jr" data-price="99">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Triple c/ Queso Jr" data-price="99">
+              <button class="quantity-btn plus" data-item="Triple c/ Queso Jr" data-price="99">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sección Bigo Trio -->
+      <div class="menu-section" id="trios">
+        <div class="section-header">
+          <h3 class="section-name">Bigo Trio</h3>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="item-header">
+              <span class="item-name">Orden de Papas + Agua de sabor</span>
+              <span class="item-price">$35</span>
+            </div>
+            <p class="item-description">Añadido opcional a cualquier hamburguesa o hot dog</p>
+            <div class="quantity-selector">
+              <button class="quantity-btn minus" data-item="Papas + Agua de sabor" data-price="35">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas + Agua de sabor" data-price="35">
+              <button class="quantity-btn plus" data-item="Papas + Agua de sabor" data-price="35">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">GATORADE</span>
-              <span class="item-price">$20</span>
+              <span class="item-name">Orden de Papas Francesas + Refresco</span>
+              <span class="item-price">$40</span>
             </div>
+            <p class="item-description">Añadido opcional a cualquier hamburguesa o hot dog</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="GATORADE" data-price="20">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="GATORADE" data-price="20">
-              <button class="quantity-btn plus" data-item="GATORADE" data-price="20">+</button>
+              <button class="quantity-btn minus" data-item="Papas Francesas + Refresco" data-price="40">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas Francesas + Refresco" data-price="40">
+              <button class="quantity-btn plus" data-item="Papas Francesas + Refresco" data-price="40">+</button>
             </div>
           </div>
           
           <div class="menu-item">
             <div class="item-header">
-              <span class="item-name">COCA CLÁSICA</span>
-              <span class="item-price">$25</span>
+              <span class="item-name">Orden de Papas + Malteada</span>
+              <span class="item-price">$70</span>
             </div>
+            <p class="item-description">Añadido opcional a cualquier hamburguesa o hot dog</p>
             <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="COCA CLÁSICA" data-price="25">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="COCA CLÁSICA" data-price="25">
-              <button class="quantity-btn plus" data-item="COCA CLÁSICA" data-price="25">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">COCA SIN AZÚCAR</span>
-              <span class="item-price">$25</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="COCA SIN AZÚCAR" data-price="25">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="COCA SIN AZÚCAR" data-price="25">
-              <button class="quantity-btn plus" data-item="COCA SIN AZÚCAR" data-price="25">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">CAFÉ AMERICANO</span>
-              <span class="item-price">$20</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="CAFÉ AMERICANO" data-price="20">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="CAFÉ AMERICANO" data-price="20">
-              <button class="quantity-btn plus" data-item="CAFÉ AMERICANO" data-price="20">+</button>
-            </div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="item-header">
-              <span class="item-name">CAFÉ CON LECHE</span>
-              <span class="item-price">$25</span>
-            </div>
-            <div class="quantity-selector">
-              <button class="quantity-btn minus" data-item="CAFÉ CON LECHE" data-price="25">-</button>
-              <input type="number" class="quantity-input" value="0" min="0" data-item="CAFÉ CON LECHE" data-price="25">
-              <button class="quantity-btn plus" data-item="CAFÉ CON LECHE" data-price="25">+</button>
+              <button class="quantity-btn minus" data-item="Papas + Malteada" data-price="70">-</button>
+              <input type="number" class="quantity-input" value="0" min="0" data-item="Papas + Malteada" data-price="70">
+              <button class="quantity-btn plus" data-item="Papas + Malteada" data-price="70">+</button>
             </div>
           </div>
         </div>
