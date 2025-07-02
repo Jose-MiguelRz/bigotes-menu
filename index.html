@@ -29,6 +29,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 120px; /* Espacio para el header y categorías */
     }
 
     body {
@@ -127,6 +128,10 @@
       
       .hero {
         margin-top: 50px;
+      }
+      
+      html {
+        scroll-padding-top: 100px; /* Ajuste para móviles */
       }
     }
 
@@ -245,7 +250,7 @@
 
     /* Secciones */
     .section {
-      padding: 80px 15px 60px;
+      padding: 100px 15px 60px; /* Aumenté el padding superior para más espacio */
       position: relative;
     }
 
@@ -293,49 +298,50 @@
     /* Submenú de categorías */
     .category-nav {
       position: sticky;
-      top: 80px;
+      top: 60px; /* Altura del header */
       background-color: rgba(26, 26, 26, 0.95);
       z-index: 999;
-      padding: 10px 5px;
+      padding: 15px 5%;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       flex-wrap: nowrap;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      gap: 8px;
-      margin-top: -20px;
-      margin-bottom: 20px;
+      gap: 15px;
+      margin-top: 0;
+      margin-bottom: 30px;
     }
 
     .category-link {
-      padding: 8px 15px;
+      padding: 8px 20px;
       background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      border-radius: 30px;
       color: var(--light);
       text-decoration: none;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       transition: all 0.3s ease;
       font-family: 'Amatic SC', cursive;
       white-space: nowrap;
       flex-shrink: 0;
     }
 
-    .category-link:hover {
+    .category-link:hover, .category-link.active {
       background-color: var(--primary);
       color: white;
       transform: translateY(-2px);
     }
 
     .menu-section {
-      margin-bottom: 40px;
+      margin-bottom: 60px; /* Más espacio entre secciones */
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       border-radius: 12px;
-      padding: 20px;
+      padding: 25px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       border-left: 4px solid var(--primary);
       transition: all 0.3s ease;
+      scroll-margin-top: 120px; /* Espacio para header + categorías */
     }
 
     .menu-section:hover {
@@ -361,7 +367,7 @@
     .menu-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 15px;
+      gap: 20px;
     }
 
     .menu-item {
@@ -793,7 +799,7 @@
       }
       
       .section {
-        padding: 90px 20px 70px;
+        padding: 110px 20px 70px;
       }
       
       .section-title {
@@ -841,7 +847,7 @@
       }
       
       .section {
-        padding: 100px 5% 80px;
+        padding: 120px 5% 80px;
       }
       
       .section-title {
@@ -849,7 +855,7 @@
       }
       
       .category-nav {
-        top: 100px;
+        top: 60px;
         padding: 15px 5%;
         justify-content: center;
       }
@@ -878,7 +884,7 @@
       }
       
       .section {
-        padding: 120px 5% 100px;
+        padding: 140px 5% 100px;
       }
       
       .location-info {
@@ -1550,7 +1556,7 @@
 
   <!-- Script -->
   <script>
-    // Menú móvil
+    // Menú móvil (se mantiene igual)
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     
@@ -1559,25 +1565,14 @@
       hamburger.classList.toggle('fa-times');
     });
     
-    // Cerrar menú al hacer clic en un enlace
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
         hamburger.classList.remove('fa-times');
       });
     });
-    
-    // Cambiar header al hacer scroll
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-      }
-    });
 
-    // Sistema de pedidos
+    // Sistema de pedidos (se mantiene igual)
     const completeOrderBtn = document.getElementById('completeOrderBtn');
     const orderModal = document.getElementById('orderModal');
     const modalClose = document.getElementById('modalClose');
@@ -1586,7 +1581,6 @@
     const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
     const whatsappNumber = '5215554029560';
 
-    // Array para almacenar los items seleccionados
     let selectedItems = [];
 
     // Manejar los botones de cantidad
@@ -1723,31 +1717,82 @@
       }
     });
 
-    // Smooth scroll para los enlaces de categoría - CORREGIDO
+     /********************************************************
+     * CORRECCIÓN PRINCIPAL: AJUSTE DE SCROLL PARA CATEGORÍAS
+     ********************************************************/
+    
+    // Smooth scroll para categorías - Versión corregida
     document.querySelectorAll('.category-link').forEach(link => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = link.getAttribute('href');
+        const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
         
         if (targetElement) {
-          // Calcular la posición exacta considerando el header fijo
-          const headerHeight = document.querySelector('header').offsetHeight;
-          const categoryNavHeight = document.querySelector('.category-nav').offsetHeight;
-          const targetPosition = targetElement.offsetTop - headerHeight - categoryNavHeight;
+          // Calculamos la posición exacta
+          const header = document.querySelector('header');
+          const categoryNav = document.querySelector('.category-nav');
+          
+          // Alturas importantes
+          const headerHeight = header.offsetHeight;
+          const navHeight = categoryNav.offsetHeight;
+          
+          // Posición del elemento destino
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          
+          // Scroll actual
+          const currentScroll = window.pageYOffset;
+          
+          // Calculamos la posición final (ajustado para que quede perfecto)
+          const targetPosition = elementPosition + currentScroll - headerHeight - navHeight;
           
           window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
           });
-          
-          // Resaltar la categoría seleccionada
-          document.querySelectorAll('.category-link').forEach(link => {
-            link.style.backgroundColor = '';
+
+          // Actualizamos la categoría activa
+          document.querySelectorAll('.category-link').forEach(btn => {
+            btn.classList.remove('active');
           });
-          link.style.backgroundColor = 'rgba(255, 107, 0, 0.3)';
+          this.classList.add('active');
         }
       });
+    });
+
+    // Actualizar categoría activa al hacer scroll (versión mejorada)
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('.menu-section');
+      const scrollPosition = window.scrollY + 150; // Pequeño offset
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const navHeight = document.querySelector('.category-nav').offsetHeight;
+        
+        // Punto de activación (ajustado)
+        const activationPoint = sectionTop - headerHeight - navHeight - 30;
+        
+        if (scrollPosition >= activationPoint && 
+            scrollPosition < activationPoint + sectionHeight + 100) {
+          document.querySelectorAll('.category-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // Activar primera categoría al cargar
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.location.hash === '#menu') {
+        const firstLink = document.querySelector('.category-link');
+        if (firstLink) firstLink.classList.add('active');
+      }
     });
   </script>
 </body>
